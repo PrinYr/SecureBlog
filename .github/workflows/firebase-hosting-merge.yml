@@ -11,7 +11,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm run build
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "22.4.1" # Updated to the correct Node.js version
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Install Astro globally
+      - name: Install Astro
+        run: npm install -g astro
+
+      # Build the project
+      - name: Build project
+        run: npm run build
+
+      # Deploy to Firebase
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
