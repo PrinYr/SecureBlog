@@ -1,9 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import Navigation from "../components/Navigation.astro";
 ---
 
 <Layout title="Welcome to Astro.">
+  <Navigation />
   <main>
     <svg
       class="astro-a"
@@ -62,7 +64,11 @@ import Card from "../components/Card.astro";
       />
     </ul>
   </main>
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer
+  ></script>
 </Layout>
 
 <style>
