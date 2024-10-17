@@ -2,6 +2,7 @@
 import TestLayout from "../layouts/TestLayout.astro";
 const pageTitle = "Astro";
 const allPosts = await Astro.glob("./posts/*.md");
+import Postblog from "../components/Postblog.astro";
 ---
 
 <TestLayout pageTitle={pageTitle}>
@@ -10,9 +11,7 @@ const allPosts = await Astro.glob("./posts/*.md");
   <ul>
     {
       allPosts.map((post) => (
-        <li>
-          <a href={post.url}>{post.frontmatter.title}</a>
-        </li>
+        <Postblog url={post.url} title={post.frontmatter.title} />
       ))
     }
   </ul>
