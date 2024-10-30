@@ -1,15 +1,10 @@
 import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 
-import cloudflare from '@astrojs/cloudflare';
-
-import react from '@astrojs/react';
-
-import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server',
-  adapter: cloudflare(),
-  integrations: [react(), tailwind()],
-  site: "https://secureblog.pages.dev/"
+	site: 'https://example.com',
+	integrations: [mdx(), sitemap()],
 });
