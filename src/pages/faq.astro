@@ -1,0 +1,53 @@
+---
+import FaQlayout from "../layouts/FaQlayout.astro";
+---
+
+<FaQlayout title="Frequently Asked Questions">
+  <div class="space-y-4">
+    {
+      [
+        "What is SecureBlog?",
+        "How do I create an account?",
+        "Is it free to use?",
+      ].map((question) => (
+        <div class="bg-white rounded-lg shadow-sm">
+          <button
+            class="w-full text-left p-4 flex justify-between items-center text-lg font-medium text-gray-700 hover:text-gray-900"
+            aria-expanded="false"
+          >
+            {question}
+            <svg
+              class="w-5 h-5 transform transition-transform duration-200"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M5 7.5L10 12.5L15 7.5"
+                stroke="currentColor"
+                fill="none"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+          <div class="hidden px-4 pb-4 text-gray-600">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</FaQlayout>
+
+<script>
+  document.querySelectorAll("button").forEach((button) => {
+    button.addEventListener("click", () => {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!expanded));
+      const answer = button.nextElementSibling;
+      answer.classList.toggle("hidden");
+      button.querySelector("svg").classList.toggle("rotate-180");
+    });
+  });
+</script>
