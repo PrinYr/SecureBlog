@@ -1,0 +1,49 @@
+---
+const categories = ["All", "Technology", "School", "Food", "Travel", "Gaming"];
+const { activeCategory = "All" } = Astro.props;
+---
+
+<div class="categories">
+  {
+    categories.map((category) => (
+      <a
+        href={
+          category === "All"
+            ? "/blog"
+            : `/blog/category/${category.toLowerCase()}`
+        }
+        class:list={["category-link", { active: category === activeCategory }]}
+      >
+        {category}
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .categories {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 0.5rem 0 1rem 0;
+    justify-content: center;
+  }
+
+  .category-link {
+    padding: 0.5rem 1rem;
+    color: #000;
+    text-decoration: none;
+    border: 1px solid #000;
+    border-radius: 4px;
+    user-select: auto;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+  }
+
+  .category-link:hover,
+  .category-link.active {
+    background-color: #000;
+    color: #fff;
+  }
+</style>
