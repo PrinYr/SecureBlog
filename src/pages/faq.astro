@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/FAQlayout.astro";
+import Layout from "../layouts/FaQlayout.astro";
 ---
 
 <Layout title="Question & Answer">
@@ -46,8 +46,11 @@ import Layout from "../layouts/FAQlayout.astro";
       const expanded = button.getAttribute("aria-expanded") === "true";
       button.setAttribute("aria-expanded", String(!expanded));
       const answer = button.nextElementSibling;
-      answer.classList.toggle("hidden");
-      button.querySelector("svg").classList.toggle("rotate-180");
+      if (answer) {
+        answer.classList.toggle("hidden");
+      }
+      const svg = button.querySelector("svg");
+      svg?.classList.toggle("rotate-180");
     });
   });
 </script>
