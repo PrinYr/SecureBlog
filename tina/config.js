@@ -9,10 +9,7 @@ const branch =
 
 export default defineConfig({
   branch,
-
-  // Get this from tina.io
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-  // Get this from tina.io
   token: process.env.TINA_TOKEN,
 
   build: {
@@ -25,13 +22,12 @@ export default defineConfig({
       publicFolder: "public",
     },
   },
-  // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
       {
         name: "post",
         label: "Posts",
-        path: "content/posts",
+        path: "src/content/blog",
         fields: [
           {
             type: "string",
@@ -39,6 +35,51 @@ export default defineConfig({
             label: "Title",
             isTitle: true,
             required: true,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            required: true,
+          },
+          {
+            type: "datetime",
+            name: "pubDate",
+            label: "Publication Date",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "heroImage",
+            label: "Hero Image",
+          },
+          {
+            type: "string",
+            name: "category",
+            label: "Category",
+            required: true,
+            options: [
+              {
+                label: "Technology",
+                value: "Technology"
+              },
+              {
+                label: "School",
+                value: "School"
+              },
+              {
+                label: "Food",
+                value: "Food"
+              },
+              {
+                label: "Travel",
+                value: "Travel"
+              },
+              {
+                label: "Gaming",
+                value: "Gaming"
+              }
+            ]
           },
           {
             type: "rich-text",
