@@ -1,6 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import SignInButton from "./SignInButton.astro";
+import WriteButton from "./WriteButton.astro";
 import { SITE_TITLE } from "../consts";
 ---
 
@@ -13,7 +14,10 @@ import { SITE_TITLE } from "../consts";
       <HeaderLink href="/about">About</HeaderLink>
       <HeaderLink href="/faq">Help</HeaderLink>
     </div>
-    <SignInButton />
+    <div class="flex gap-2 items-center">
+      <WriteButton />
+      <SignInButton />
+    </div>
   </nav>
   <style>
     header {
@@ -25,6 +29,7 @@ import { SITE_TITLE } from "../consts";
     h2 {
       margin: 0;
       font-size: 1em;
+      flex: 0 0 200px; /* Give fixed width to logo area */
     }
     h2 a,
     h2 a.active {
@@ -34,6 +39,15 @@ import { SITE_TITLE } from "../consts";
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 0.5rem 0;
+    }
+    .internal-links {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center the links */
+      gap: 2rem;
+      margin: 0 1rem;
     }
     nav a {
       padding: 1em 0.5em;
@@ -44,6 +58,13 @@ import { SITE_TITLE } from "../consts";
     nav a.active {
       text-decoration: none;
       border-bottom-color: var(--accent);
+    }
+    .flex.gap-2 {
+      display: flex;
+      align-items: center;
+      padding-left: 1rem;
+      /* remove the fixed width constraint */
+      justify-content: flex-end;
     }
   </style>
 </header>
