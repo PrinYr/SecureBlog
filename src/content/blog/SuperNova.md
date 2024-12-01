@@ -2,7 +2,7 @@
 title: SuperNova
 description: i dream of space travel
 pubDate: 2024-10-22T17:00:00.000Z
-heroImage: /blog-placeholder-5.jpg
+heroImage: /SN1994D.jpg
 category: Technology
 ---
 
