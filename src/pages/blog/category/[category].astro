@@ -11,11 +11,15 @@ export async function getStaticPaths() {
   const categories = ["technology", "school", "food", "travel", "gaming"];
   return categories.map((category) => ({
     params: { category },
-    props: { category },
   }));
 }
 
-const { category } = Astro.props;
+const { category } = Astro.params;
+
+if (!category) {
+  throw new Error("Category parameter is required");
+}
+
 const capitalizedCategory =
   category.charAt(0).toUpperCase() + category.slice(1);
 
